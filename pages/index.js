@@ -11,7 +11,7 @@ export default function Home() {
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
   const fetchWeather = (e) => {
     e.preventDefault();
@@ -41,6 +41,7 @@ export default function Home() {
           src='https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2575&q=80'
           layout='fill'
           className='object-cover'
+          alt="Weather background"
         />
 
         {/* Search */}
@@ -57,7 +58,7 @@ export default function Home() {
                 placeholder='Search city'
               />
             </div>
-            <button onClick={fetchWeather}>
+            <button onClick={fetchWeather} aria-label="Search">
               <BsSearch size={20} />
             </button>
           </form>
